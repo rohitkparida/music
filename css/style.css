@@ -156,7 +156,6 @@ img {
 
 #picturebg {
     width: 150%;
-    /* height: 200%; */
     position: absolute;
     left: 0;
     z-index: -1;
@@ -186,13 +185,9 @@ li {
     height: 55px;
 }
 
-.now {
-    border-bottom: 1px solid #E0E0E0;
-}
-
-li a, .now {
+li a {
     color: #212121;
-    padding: 18px;
+    margin: 18px;
     display: block;
     text-decoration: none;
 }
