@@ -28,7 +28,7 @@
         <!--______________________________APPBAR_END-->
         <!--______________________________CONTENT-->
         <div class="content">
-            <div class="video-container">
+            <div class="video-container ripple">
                 <audio id="element" preload="auto" autoplay tabindex="0" controls="" hidden>
                     Your Fallback goes here
                 </audio>
@@ -87,7 +87,7 @@
             </div>
             <div class="botmbar">
                 <input type="file" name="upload" id="receiver" class="receiver" onchange="loadFile(this)" hidden>
-                <label for="receiver">
+                <label class="ripple" for="receiver">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z" /></svg>
                 </label>
                 <input type="text" id="newURL" onkeyup="success()" placeholder="Enter URL">

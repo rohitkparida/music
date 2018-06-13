@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by roXon (http://jsbin.com/aZuDaCU/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<meta charset=utf-8 />
+<title>Demo by Roko C.B.</title>
+<style id="jsbin-css">
+div.browse-wrap {
+        top:0;
+        left:0;
+        margin:20px;
+        cursor:pointer;
+        overflow:hidden;
+        padding:20px 60px;
+        text-align:center;
+        position:relative;
+        background-color:#f6f7f8;
+        border:solid 1px #d2d2d7;}
+div.title {
+        color:#3b5998;
+        font-size:14px;
+        font-weight:bold;
+        font-family:tahoma, arial, sans-serif;}
+input.upload {
+        right:0;
+        margin:0;
+        bottom:0;
+        padding:0;
+        opacity:0;
+        height:300px;
+        outline:none;
+        cursor:inherit;
+        position:absolute;
+        font-size:1000px !important;}
+span.upload-path {
+        margin:20px;
+        display:block;}
+</style>
+</head>
+<body>
+  
+<div class="browse-wrap">
+    <div class="title">Choose a file to upload</div>
+    <input type="file" name="upload" class="upload" title="Choose a file to upload">
+</div>
+<span class="upload-path">...</span> 
+  
+  
+<script id="jsbin-javascript">
+$('input[type="file"]').change(function(){
+  
+  var f = this.files[0];  
+  var name = f.name;
+  
+  $(this).closest('.browse-wrap').next('.upload-path').text(name);
+  
+});
+</script>
+</body>
+</html>

@@ -80,7 +80,7 @@ video::-webkit-media-controls-timeline {}
     position: absolute;
     margin-top: 50vh;
     background: #FF5722;
-    height: 60vh;
+    min-height: 50vh;
     width: 100vw;
     z-index: 2;
 }

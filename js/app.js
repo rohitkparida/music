@@ -1,36 +1,51 @@
-(function localFileVideoPlayer() {
-    'use strict'
-    var URL = window.URL || window.webkitURL
-    var displayMessage = function(message, isError) {
-        var element = document.querySelector('#message')
-        element.innerHTML = message
-        element.className = isError ? 'error' : 'info'
-    }
-    var playSelectedFile = function(event) {
-        var file = this.files[0]
-        var type = file.type
-        var videoNode = document.querySelector('audio')
-        var canPlay = videoNode.canPlayType(type)
-        if (canPlay === '') canPlay = 'no'
-        var message = 'Can play type "' + type + '": ' + canPlay
-        var isError = canPlay === 'no'
-        displayMessage(message, isError)
+// (function localFileVideoPlayer() {
+//     'use strict'
+//     var URL = window.URL || window.webkitURL
+//     var displayMessage = function(message, isError) {
+//         var element = document.querySelector('#message')
+//         element.innerHTML = message
+//         element.className = isError ? 'error' : 'info'
+//     }
+//     var playSelectedFile = function(event) {
+//         var file = this.files[0]
+//         var type = file.type
+//         var videoNode = document.querySelector('audio')
+//         var canPlay = videoNode.canPlayType(type)
+//         if (canPlay === '') canPlay = 'no'
+//         var message = 'Can play type "' + type + '": ' + canPlay
+//         var isError = canPlay === 'no'
+//         displayMessage(message, isError)
+//
+//         if (isError) {
+//             return
+//         }
+//
+//         var fileURL = URL.createObjectURL(file)
+//         videoNode.src = fileURL
+//         a.src = fileURL
+//     }
+//     var inputNode = document.querySelector('.receiver')
+//     inputNode.addEventListener('change', playSelectedFile, false)
+// })()
 
-        if (isError) {
-            return
+
+
+var $audio = $('#element');
+$('.receiver').on('change', function(e) {
+    var target = e.currentTarget;
+    var file = target.files[0];
+    var reader = new FileReader();
+
+    console.log($audio[0]);
+    if (target.files && file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $audio.attr('src', e.target.result);
+            $audio.play();
         }
-
-        var fileURL = URL.createObjectURL(file)
-        videoNode.src = fileURL
-        a.src = fileURL
+        reader.readAsDataURL(file);
     }
-    var inputNode = document.querySelector('.receiver')
-    inputNode.addEventListener('change', playSelectedFile, false)
-})()
-
-
-
-
+});
 
 
 
